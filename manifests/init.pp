@@ -22,7 +22,7 @@ class rails_contributor {
   rails_contributor::project { $repos: }
 
   file { "${dir}/rails/activerecord/test/config.yml":
-    source  => 'puppet:///modules/puppet-rails_contributor/config.yml',
+    source  => 'puppet:///modules/rails_contributor/config.yml',
     ensure  => present,
     require => Rails_Contributor::Project['rails']
   }
