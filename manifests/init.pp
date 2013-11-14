@@ -3,7 +3,9 @@
 # Usage:
 #
 #   include rails_contributor
-class rails_contributor {
+#   # or
+#   class { 'rails_contributor': repos => ['rails', 'arel'] }
+class rails_contributor($repos = rails_repos()) {
   include boxen::config
 
   $dir = "${boxen::config::srcdir}/rails"
@@ -18,7 +20,6 @@ class rails_contributor {
     ensure => directory
   }
 
-  $repos = rails_repos()
   rails_contributor::project { $repos: }
 
   file { "${dir}/rails/activerecord/test/config.yml":
