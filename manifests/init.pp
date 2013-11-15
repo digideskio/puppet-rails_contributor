@@ -12,7 +12,6 @@ class rails_contributor($repos = rails_repos()) {
 
   include postgresql
   include mysql
-  include ruby::1_8_7
   include ruby::1_9_3
   include ruby::2_0_0
 
