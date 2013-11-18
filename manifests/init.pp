@@ -3,14 +3,15 @@
 # Usage:
 #
 #   include rails_contributor
-class rails_contributor {
+#   # or
+#   class { 'rails_contributor': repositories => ['rails', 'arel'] }
+class rails_contributor($repositories = rails_repos()) {
   include boxen::config
 
   $dir = "${boxen::config::srcdir}/rails"
 
   include postgresql
   include mysql
-  include ruby::1_8_7
   include ruby::1_9_3
   include ruby::2_0_0
 
@@ -18,8 +19,7 @@ class rails_contributor {
     ensure => directory
   }
 
-  $repos = rails_repos()
-  rails_contributor::project { $repos: }
+  rails_contributor::project { $repositories: }
 
   file { "${dir}/rails/activerecord/test/config.yml":
     source  => 'puppet:///modules/rails_contributor/config.yml',
