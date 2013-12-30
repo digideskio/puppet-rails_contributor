@@ -12,8 +12,7 @@ class rails_contributor($repositories = rails_repos()) {
 
   include postgresql
   include mysql
-  include ruby::1_9_3
-  include ruby::2_0_0
+  ruby::version { ['1.9.3', '2.0.0', '2.1.0']: }
 
   file { $dir:
     ensure => directory
