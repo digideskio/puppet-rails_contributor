@@ -15,6 +15,6 @@ module Puppet::Parser::Functions
       repos.concat Octokit.org_repos(:rails, opts).map(&:name)
     end
 
-    repos
+    repos.uniq
   end
 end
