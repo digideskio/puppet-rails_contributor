@@ -7,7 +7,7 @@
 #   class { 'rails_contributor': repositories => ['rails', 'arel'] }
 class rails_contributor(
   $repositories = rails_repos(),
-  $ruby_versions = ['1.9.3', '2.0.0', '2.1.1'],
+  $ruby_versions = ['1.9.3', '2.0.0', '2.1.2'],
 ) {
   include boxen::config
 
